@@ -4,12 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redirecting...</title>
-    <script type="text/javascript">
-        // 現在のURLのパスを取得し、新しいURLに追加
-        window.location.href = "https://junshin-life.vercel.app" + window.location.pathname + window.location.search;
-    </script>
+    <style>
+        body {
+            background-color: lightblue; /* 水色の背景 */
+            font-family: 'Comic Sans MS', cursive, sans-serif; /* ポップなフォント */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .message {
+            font-size: 24px;
+            color: #ff6347; /* ポップなオレンジ色 */
+            animation: fadeInOut 2.5s forwards; /* アニメーションの設定 */
+        }
+        @keyframes fadeInOut {
+            0% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+    </style>
 </head>
 <body>
-    <p>Redirecting to new location...</p>
+    <div class="message">リダイレクト中です...</div>
+    
+    <script type="text/javascript">
+        // 2.5秒後にリダイレクト
+        setTimeout(function() {
+            window.location.href = "https://junshin-life.vercel.app" + window.location.pathname + window.location.search;
+        }, 2500); // 2500ミリ秒（2.5秒）後
+    </script>
 </body>
 </html>
