@@ -4,13 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="none">
-    <title>リダイレクトしています…</title>
-    <!-- Google Fonts から M PLUS 1p をインポート -->
+    <title>Redirecting...</title>
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            background-color: lightblue; /* 水色の背景 */
-            font-family: 'M PLUS 1p', sans-serif; /* M PLUS 1p フォント */
+            background-color: lightblue;
+            font-family: 'M PLUS 1p', sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -18,20 +17,14 @@
             margin: 0;
         }
         .message {
-            font-size: 48px;
-            color: #ff6347; /* ポップなオレンジ色 */
-            animation: fadeInOut 2.5s forwards; /* アニメーションの設定 */
+            font-size: 40px;
+            color: #ff6347;
+            animation: fadeInOut 2.5s forwards;
         }
         @keyframes fadeInOut {
-            0% {
-                opacity: 0;
-            }
-            50% {
-                opacity: 1;
-            }
-            100% {
-                opacity: 0;
-            }
+            0% { opacity: 0; }
+            50% { opacity: 1; }
+            100% { opacity: 0; }
         }
     </style>
 </head>
@@ -39,10 +32,14 @@
     <div class="message">リダイレクト中です...</div>
     
     <script type="text/javascript">
-        // 2.5秒後にリダイレクト
+        const path = window.location.pathname;
         setTimeout(function() {
-            window.location.href = "https://junshin-life.vercel.app" + window.location.pathname + window.location.search;
-        }, 2500); // 2500ミリ秒（2.5秒）後
+            if (path === "/join") {
+                window.location.href = "https://discord.gg/junshin";
+            } else {
+                window.location.href = "https://junshin-life.vercel.app" + path + window.location.search;
+            }
+        }, 2500);
     </script>
 </body>
 </html>
