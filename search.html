@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>リダイレクト中...</title>
+    <style>
+        body {
+            background-color: #ADD8E6;
+            color: #FFA500;
+            font-family: 'M PLUS 1p', sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+
+        p {
+            font-size: 18px;
+        }
+    </style>
+    <script>
+        function getParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        window.onload = function() {
+            const keyword = getParameter('search');
+            if (keyword) {
+                const redirectUrl = `https://junshin-life.vercel.app/addons?sort=1&q=${encodeURIComponent(keyword)}#list`;
+                window.location.href = redirectUrl;
+            } else {
+                document.body.innerHTML = '<p>キーワードが指定されていません。</p>';
+            }
+        };
+    </script>
+</head>
+<body>
+    <p>ページは自動的にリダイレクトされます...</p>
+</body>
+</html>
