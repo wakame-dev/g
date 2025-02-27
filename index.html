@@ -32,12 +32,16 @@
     <div class="message">リダイレクト中です...</div>
     
     <script type="text/javascript">
-        const path = window.location.pathname;
+        const urlParams = new URLSearchParams(window.location.search);
+        const searchKeyword = urlParams.get('search');
+        
         setTimeout(function() {
-            if (path === "/join") {
-                window.location.href = "https://discord.gg/junshin";
+            if (searchKeyword) {
+                // キーワードがある場合、指定されたURLにリダイレクト
+                window.location.href = "https://junshin-life.vercel.app/addons?sort=1&q=" + encodeURIComponent(searchKeyword) + "#list";
             } else {
-                window.location.href = "https://junshin-life.vercel.app" + path + window.location.search;
+                // キーワードがない場合、元のページにリダイレクト
+                window.location.href = "https://junshin-life.vercel.app" + window.location.pathname + window.location.search;
             }
         }, 2500);
     </script>
